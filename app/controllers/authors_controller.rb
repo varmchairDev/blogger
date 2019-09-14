@@ -1,6 +1,9 @@
 class AuthorsController < ApplicationController
-  before_action :set_author, only: [:show, :edit, :update, :destroy]
+  #before_action :set_author, only: [:show, :edit, :update, :destroy]
+  before_action :require_login, except: [:new, :create]
 
+  
+  
   # GET /authors
   # GET /authors.json
   def index
@@ -10,7 +13,7 @@ class AuthorsController < ApplicationController
   # GET /authors/1
   # GET /authors/1.json
   def show
-  end
+  end  
 
   # GET /authors/new
   def new
